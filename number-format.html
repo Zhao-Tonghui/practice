@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="call-number" placeholder="请输入电话号码" />
+	<script type="text/javascript">
+		var getinput=document.getElementById("call-number");
+		window.onload=function(){
+			getinput.focus();
+		}
+		getinput.onkeyup=function(){
+			var num=getinput.value;
+			var numarr=new Array();
+			numarr=num.split("");
+			if(numarr.length==3){
+				numarr.splice(3,0," ");
+			}
+			if(numarr.length==8){
+				numarr.splice(8,0," ");
+			}
+			if(numarr.length>13){
+				numarr.pop();
+				alert("只能输入十一位以内号码！")
+			}
+			getinput.value=numarr.join("");
+		}
+	</script>
+</body>
+</html>
